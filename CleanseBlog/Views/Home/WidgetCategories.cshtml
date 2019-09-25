@@ -1,0 +1,16 @@
+﻿@using CleanseBlog.Models
+@model List<Kategori>
+
+@{ 
+    Layout = null;
+}
+<div class="widget categories">
+    <h5>Categories</h5>
+    <ul>
+        @foreach (var cat in Model)
+        {
+            <li><a href="/Kategori/Index/@cat.id">@cat.adi</a></li>
+        }
+
+    </ul>
+</div>

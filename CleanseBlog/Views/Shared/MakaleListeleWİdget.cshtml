@@ -1,0 +1,48 @@
+﻿@using CleanseBlog.Models
+@model List<Makale>
+
+@{
+    Layout = null;
+}
+@helper icerikKisalt(string metin)
+{
+    if (metin.Length > 300)
+    {
+        <p>@metin.Substring(0, 300);</p>
+    }
+    else
+    {
+        <p>@metin;</p> 
+    }
+}
+
+<div class="posts">
+    @foreach (var makale in Model)
+    {
+
+        <article class="blog-post">
+            <header>
+                <h2>
+                    <a href="/Makale/Detay/@makale.id">@makale.baslik</a>
+                </h2>
+                <ul class="info">
+                    <li><a href="/Kategori/Index/@makale.kategoriId">{ @makale.Kategori.adi }</a></li>
+                    <li><a href="/Makale/TariheGoreListe?yil=@makale.yayinTarihi.Year&ay=@makale.yayinTarihi.Month">{ @makale.yayinTarihi.ToString("MMMM yyyy") }</a></li>
+                    <li><a href="/Yazar/Index/@makale.yazarId">{ @makale.Yazar.adi }</a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <figure>
+                    <a href="/Makale/Detay/@makale.id">
+                        <img src="@makale.Resim.ortResimYol" alt="" />
+                    </a>
+                </figure>
+                <div class="text">
+                    <p>@icerikKisalt(makale.icerik)</p>
+                </div>
+                <a href="#" class="btn btn-default">Read more</a>
+            </div>
+        </article>
+
+    }
+</div>

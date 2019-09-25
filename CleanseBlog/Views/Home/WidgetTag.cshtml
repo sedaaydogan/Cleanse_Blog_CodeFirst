@@ -1,0 +1,14 @@
+﻿@using CleanseBlog.Models
+@model List<Etiket>
+@{ 
+    Layout = null;
+}
+<div class="widget blog-tags">
+    <h5>Blog tags</h5>
+    <ul>
+        @foreach (var tag in Model)
+        {
+            <li><a href="/Etiket/Index/@tag.id" class="btn btn-default">@tag.adi</a></li>
+        }
+    </ul>
+</div>

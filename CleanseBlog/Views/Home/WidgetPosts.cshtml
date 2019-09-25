@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+@using CleanseBlog.Models
+<div class="widget posts">
+    <h5>Posts</h5>
+    <div class="widget-tabs">
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#popular" data-toggle="tab">Popular</a></li>
+            <li><span>/</span></li>
+            <li><a href="#fresh" data-toggle="tab">Fresh</a></li>
+        </ul>
+        @{
+            Makale mak = new Makale();
+        }
+        <div class="tab-content">
+            <div class="tab-pane active" id="popular">
+                <ul>
+
+                    @foreach (var popi in ViewBag.populer)
+                    {
+                        <li>
+                            <figure>
+                                <a href="#">
+                                    <img src="/Content/content/widget-post01.jpg" alt="" />
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <a href="#">@popi.baslik</a>
+                                <a href="#" class="category">{ @popi.Kategori.adi }</a>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+            <div class="tab-pane" id="fresh">
+                <ul>
+                    @foreach (var fre in ViewBag.fresh)
+                    {
+                        <li>
+                            <figure>
+                                <a href="#">
+                                    <img src="/Content/content/widget-post03.jpg" alt="" />
+                                </a>
+                            </figure>
+                            <div class="text">
+                                <a href="#">@fre.baslik</a>
+                                <a href="#" class="category">{ @fre.Kategori.adi }</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

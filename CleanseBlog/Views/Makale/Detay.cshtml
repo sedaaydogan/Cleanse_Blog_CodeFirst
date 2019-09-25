@@ -1,0 +1,52 @@
+﻿@using CleanseBlog.Models
+@model Makale
+@{
+    ViewBag.Title = "Detay";
+}
+
+<h2>Detay</h2>
+<article class="blog-post">
+    <header>
+        <h2>
+            <a href="#">@Model.baslik</a>
+        </h2>
+        <ul class="info">
+            <li><a href="Kategori/Index/@Model.id">{ @Model.Kategori.adi }</a></li>
+            <li><a href="#">{ @Model.yayinTarihi }</a></li>
+            <li><a href="#">{ @Model.Yazar.adi }</a></li>
+            <li>{ Comments: <a href="#">12</a> }</li>
+            <li>
+                @Html.ActionLink("Makale Yaz", "MakaleYaz", null, new { @class = "btn btn-outline-primary" });
+            </li>
+        </ul>
+    </header>
+    <div class="text-editor">
+
+        <h2>@Model.baslik</h2>
+        <p>
+            @Model.icerik
+        </p>
+        <figure>
+            <img src="@Model.Resim.bykResimYol" alt="" />
+            <figcaption>Lollipop tiramisu tootsie roll jujubes I love I love wafer I love. Candy oat cake</figcaption>
+        </figure>
+
+        <div class="author-wrap">
+            <div class="author">
+                <figure>
+                    <a href="#">
+                        <img src="content/author.png" alt="#" />
+                    </a>
+                </figure>
+                <div class="name">Jasper Odgen</div>
+                <div class="description">
+                    Jelly I love apple pie tart tootsie roll tiramisu bonbon I love.
+                    I love I love cookie cotton candy.
+                    Danish candy muffin lollipop tiramisu gingerbread sugar plum lollipop.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</article>
+

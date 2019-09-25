@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "TariheGoreListe";
+}
+
+<h2>TariheGoreListe</h2>
+
+@{ 
+    Html.RenderAction("MakeleListele", new { yil = Model.yil, ay=Model.ay });
+}
+
